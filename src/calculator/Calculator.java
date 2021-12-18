@@ -11,10 +11,10 @@ public class Calculator implements ActionListener
     JTextField t1,t2,t3;
     JPanel p1,p2,p3;
     
-    Calculator()
+    public Calculator()
     {
         f=new JFrame("Calculator");
-     
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         p1=new JPanel();
         p1.setBounds(10,80,280,270);
         p1.setBackground(Color.gray); 
@@ -100,16 +100,11 @@ public class Calculator implements ActionListener
         f.setVisible(true);
         f.setResizable(false);
     }
-        
-    public static void main(String[] args) 
-    {
-         new Calculator(); 
-    }
     
     public void actionPerformed(ActionEvent e)
     {
-        String a,b,o;
-        double x,y,res;
+        // String a,b,o;
+        // double x,y,res;
         if(e.getSource()==b0)
         {
             t1.setText(t1.getText()+"0");
