@@ -1,5 +1,6 @@
 {
     "configurations": [
+
         {
             "type": "java",
             "name": "Launch Java Program",
@@ -7,6 +8,18 @@
             "mainClass": "App",
             "vmargs": "-Xmx512m",
             "projectName": "java-calculator_ee9aec48",
+            "mode": "run",
         },
+        {
+            // debug
+            "type": "java",
+            "name": "Debug Java Program",
+            "request": "launch",
+            "mainClass": "App",
+            "vmargs": "-Xmx512m",
+            "projectName": "java-calculator_ee9aec48",
+            "mode": "debug",
+            "noDebug": false,
+        }
     ]
 }

@@ -189,41 +189,41 @@ public class Calculator implements ActionListener
         try {
 
             String[] tokens = exp.split("[-+x/%]+");
-            String[] operators = exp.split("[0-9.]");
+            String[] operators = exp.split("[0-9.]+");
             double[] values = new double[tokens.length];
             for(int i=0;i<tokens.length;i++)
             {
                 values[i]=Double.parseDouble(tokens[i]);
             }
             ans=values[0];
-            for(int i=0;i<operators.length;i++)
+            for(int i=1;i<operators.length;i++)
             {
                 if(operators[i].equals("+"))
                 {
-                    ans=ans+values[i+1];
+                    ans=ans+values[i];
                 }
                 else if(operators[i].equals("-"))
                 {
-                    ans=ans-values[i+1];
+                    ans=ans-values[i];
                 }
                 else if(operators[i].equals("x"))
                 {
-                    ans=ans*values[i+1];
+                    ans=ans*values[i];
                 }
                 else if(operators[i].equals("/"))
                 {
-                    ans=ans/values[i+1];
+                    ans=ans/values[i];
                 }
                 else if(operators[i].equals("%"))
                 {
-                    ans=ans%values[i+1];
+                    ans=ans%values[i];
                 }
             }
         }
         catch(Exception e)
         {
             ans=0;
-            e.printStackTrace();
+            // e.printStackTrace();
         }
         // 1 + 2 + 5 * 2
         // 1 2 5 2     // + + *
