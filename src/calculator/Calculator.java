@@ -3,7 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 //@author Muhaimin
-//
+//@co-author Saiham
+
 public class Calculator implements ActionListener
 {
     JFrame f;
@@ -178,9 +179,60 @@ public class Calculator implements ActionListener
         }
         if(e.getSource()==bAns)
         {
-            t2.setText(t1.getText());
+            t2.setText(calculate(t1.getText()));
         }
 
+    }
+
+    private String calculate(String exp) {
+        double ans;
+        try {
+
+            String[] tokens = exp.split("[-+x/%]+");
+            String[] operators = exp.split("[0-9.]");
+            double[] values = new double[tokens.length];
+            for(int i=0;i<tokens.length;i++)
+            {
+                values[i]=Double.parseDouble(tokens[i]);
+            }
+            ans=values[0];
+            for(int i=0;i<operators.length;i++)
+            {
+                if(operators[i].equals("+"))
+                {
+                    ans=ans+values[i+1];
+                }
+                else if(operators[i].equals("-"))
+                {
+                    ans=ans-values[i+1];
+                }
+                else if(operators[i].equals("x"))
+                {
+                    ans=ans*values[i+1];
+                }
+                else if(operators[i].equals("/"))
+                {
+                    ans=ans/values[i+1];
+                }
+                else if(operators[i].equals("%"))
+                {
+                    ans=ans%values[i+1];
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            ans=0;
+            e.printStackTrace();
+        }
+        // 1 + 2 + 5 * 2
+        // 1 2 5 2     // + + *
+        // ans=1 ---- // 2 += // 5 += // 2 *= 
+        // 123 + 45
+        // 123 45   / +
+
+
+        return Double.toString(ans);
     }
     
 }
